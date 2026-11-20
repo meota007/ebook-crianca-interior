@@ -50,13 +50,19 @@ a{color:var(--azul)}
 .selo-claro{display:inline-block;font-family:'Sora',sans-serif;font-size:12.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;padding:7px 16px;border-radius:999px;background:var(--azul-claro);border:1px solid #b5d4f3;color:#0a4f96}
 
 /* CTA */
-.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#1181e6,var(--azul) 60%);color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:17px 30px;border-radius:14px;border:none;cursor:pointer;text-align:center;box-shadow:0 10px 26px rgba(14,112,204,.35),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
-.cta:hover{background:linear-gradient(135deg,#0d75d4,var(--azul-hover) 60%);transform:translateY(-2px);box-shadow:0 14px 32px rgba(14,112,204,.42),inset 0 1px 0 rgba(255,255,255,.22)}
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:linear-gradient(135deg,#22b45e,#15803d 60%);color:#fff;font-family:'Sora',sans-serif;font-weight:700;font-size:17px;text-decoration:none;padding:17px 30px;border-radius:14px;border:none;cursor:pointer;text-align:center;box-shadow:0 10px 26px rgba(21,128,61,.42),inset 0 1px 0 rgba(255,255,255,.22);transition:transform .15s ease,box-shadow .15s ease,background .15s ease}
+.cta:hover{background:linear-gradient(135deg,#1da452,#166534 60%);transform:translateY(-2px);box-shadow:0 14px 32px rgba(21,128,61,.5),inset 0 1px 0 rgba(255,255,255,.22)}
 .cta:active{transform:translateY(0)}
 .cta svg{flex:none}
 .cta-centro{text-align:center;margin:18px 0 8px}
 .linha-cta{font-size:13.5px;color:var(--muted);text-align:center;margin:10px 0 0}
 .linha-cta svg{vertical-align:-3px;margin-right:5px}
+
+/* ponte (bloco-04): bloco compacto e centralizado */
+#bloco-04{padding:32px 0}
+#bloco-04 .wrap{display:flex;flex-direction:column;align-items:center;text-align:center}
+#bloco-04 .lead{margin:0 0 16px;max-width:54ch}
+#bloco-04 .cta{margin:0}
 
 /* HERO */
 .hero{position:relative;overflow:hidden;background:linear-gradient(180deg,var(--navy-3) 0%,var(--navy) 55%,#0d3f75 100%);color:#fff;padding:84px 0 72px}
@@ -78,12 +84,7 @@ a{color:var(--azul)}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .video-embed{position:relative;aspect-ratio:16/9;width:100%;max-width:680px;margin:32px auto 28px;border-radius:18px;overflow:hidden;border:1px solid rgba(127,185,240,.25);box-shadow:var(--shadow-deep);background:#071e38}
 .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-fachada{position:absolute;inset:0;display:block;text-decoration:none;cursor:pointer;background:#071e38 url('assets/vsl-thumb.jpg') center/cover no-repeat}
-.video-fachada img.fundo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.video-fachada .velo{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,31,58,.05) 40%,rgba(6,31,58,.62))}
-.video-fachada .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,#1181e6,var(--azul));display:flex;align-items:center;justify-content:center;box-shadow:0 12px 32px rgba(14,112,204,.5),inset 0 1px 0 rgba(255,255,255,.3);transition:transform .15s ease}
-.video-fachada:hover .play{transform:translate(-50%,-50%) scale(1.06)}
-.video-fachada:focus-visible{outline:3px solid var(--azul-medio);outline-offset:4px}
+.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
 
 /* ticks */
 .ticks{list-style:none;padding:0;margin:6px 0 0}
@@ -179,7 +180,7 @@ a{color:var(--azul)}
 /* bônus */
 .bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}
 .bonus-card{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);overflow:hidden;display:flex;flex-direction:column}
-.bonus-card img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block}
+.bonus-card img{width:100%;height:150px;object-fit:cover;display:block}
 .bonus-card .corpo{padding:18px;display:flex;flex-direction:column;flex:1}
 .bonus-card h3{font-size:16px;margin:0 0 8px}
 .bonus-card p{font-size:14.5px;color:var(--muted);flex:1}
@@ -222,8 +223,12 @@ a{color:var(--azul)}
 /* suporte + garantia */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .card-simples{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:24px}
-.card-simples h3{display:flex;align-items:center;gap:10px;font-size:17px}
+.card-simples h3{display:flex;align-items:center;justify-content:center;gap:10px;font-size:17px}
 .card-simples p{font-size:15.5px;color:var(--muted);margin:0}
+#bloco-11{padding-top:32px}
+.suporte-livre{margin:0 0 22px;text-align:center}
+.suporte-livre h3{display:flex;align-items:center;justify-content:center;gap:10px;margin:0 0 10px}
+.suporte-livre p{margin:0 auto;font-size:15.5px;color:var(--muted);max-width:62ch}
 .garantia-secao{text-align:center}
 .garantia-secao .selo-garantia{display:block;width:270px;max-width:100%;margin:0 auto 18px;filter:drop-shadow(0 12px 24px rgba(8,42,77,.15))}
 .garantia-secao p{max-width:58ch;margin:0 auto 12px;text-align:left}
@@ -263,6 +268,7 @@ a{color:var(--azul)}
 
 /* responsivo */
 @media(max-width:860px){
+  .hero h1{font-size:clamp(34px,9.5vw,42px);line-height:1.15}
   .capa-mini{flex-direction:column;text-align:center;gap:14px}
   .capa-mini img{transform:none}
   .metodo-cards{grid-template-columns:1fr}
@@ -289,16 +295,11 @@ a{color:var(--azul)}
   <div class="aurora aurora-b" aria-hidden="true"></div>
   <div class="grade" aria-hidden="true"></div>
   <div class="wrap hero-grid" data-od-id="hero-conteudo">
-      <span class="selo" data-od-id="hero-selo">Guia + áudio · Acesso imediato</span>
       <h1 data-od-id="hero-titulo">Você reage ao passado <span class="grad">sem perceber</span></h1>
       <p class="promessa" data-od-id="hero-promessa">Descubra como romper os padrões da sua infância.</p>
       <p class="sub">A explosão desproporcional, o medo de desagradar, o padrão que se repete nos relacionamentos. Nada disso nasce no presente. Nasce em ecos antigos que você nunca aprendeu a nomear.</p>
       <div class="video-embed" data-od-id="hero-vsl">
-        <a class="video-fachada" href="https://www.youtube.com/watch?v=P21vyxvQqc0" target="_blank" rel="noopener" aria-label="Assistir ao vídeo no YouTube: Aula 00 — Apresentação, Introdução ao Autoconhecimento">
-          <img class="fundo" src="assets/vsl-thumb.jpg" width="1280" height="720" alt="Capa do vídeo Aula 00 — Apresentação, Introdução ao Autoconhecimento" fetchpriority="high">
-          <span class="velo" aria-hidden="true"></span>
-          <span class="play" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M8 5.5v13l11-6.5z"/></svg></span>
-        </a>
+        <iframe src="https://www.youtube-nocookie.com/embed/P21vyxvQqc0?rel=0" title="Vídeo: Aula 00 — Apresentação, Introdução ao Autoconhecimento" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
       </div>
       <ul class="ticks">
         <li>Quem vive pedindo desculpas por reagir demais encontra a origem da reação e responde com calma</li>
@@ -338,7 +339,7 @@ a{color:var(--azul)}
   </div>
 </div></section>
 
-<section id="bloco-04" data-od-id="ponte-metodo"><div class="wrap cta-centro reveal">
+<section id="bloco-04" data-od-id="ponte-metodo"><div class="wrap reveal">
   <p class="lead">Quem se reconheceu até aqui já entendeu a origem. Falta o caminho de volta.</p>
   <a class="cta" href="https://google.com" data-od-id="ponte-cta">Quero ver o método completo
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
@@ -481,6 +482,23 @@ a{color:var(--azul)}
   </div>
 </div></section>
 
+<section id="bloco-10" data-od-id="depoimentos-resultado"><div class="wrap">
+  <span class="selo-claro reveal">Antes e depois</span>
+  <h2 class="reveal" style="margin-top:14px">Quem aplicou o método conta o antes e o depois</h2>
+  <div class="dep reveal" data-od-id="resultado-1">
+    <p><span class="quem">Antes:</span> chorava escondida depois de brigar com os filhos por motivos pequenos, com culpa acumulada há 4 anos.<br><span class="quem">Virada:</span> fez o exercício do diálogo com a foto na primeira semana e nomeou em voz alta a ferida da crítica constante.<br><span class="quem">Resultado:</span> em 2 meses, as brigas caíram para <strong>quase zero</strong> e ela descreve a casa como <strong>leve pela primeira vez</strong>.</p>
+    <div class="fila-resultado"><span class="chip">Brigas quase zero</span><span class="chip">Casa leve</span></div>
+  </div>
+  <div class="dep reveal" data-od-id="resultado-2">
+    <p><span class="quem">Antes:</span> aceitava todo projeto no trabalho, dormia 5 horas por noite e vivia exausto há 2 anos.<br><span class="quem">Virada:</span> identificou o padrão do apaziguador no mapa dos 5 traumas e escreveu os primeiros limites no papel.<br><span class="quem">Resultado:</span> em 90 dias, <strong>recusou 3 projetos sem culpa</strong> e voltou a dormir <strong>7 horas por noite</strong>.</p>
+    <div class="fila-resultado"><span class="chip">3 projetos recusados</span><span class="chip">Dorme 7 horas</span></div>
+  </div>
+  <div class="dep reveal" data-od-id="resultado-3">
+    <p><span class="quem">Antes:</span> terminava todo relacionamento antes dos 6 meses, com medo de ser abandonada primeiro, por 5 anos seguidos.<br><span class="quem">Virada:</span> atravessou as 4 etapas do perdão e escreveu a nova narrativa em 6 passos.<br><span class="quem">Resultado:</span> está há <strong>8 meses no relacionamento mais estável da vida adulta</strong>, com conversas difíceis <strong>sem fuga</strong>.</p>
+    <div class="fila-resultado"><span class="chip">8 meses estáveis</span><span class="chip">Conversas sem fuga</span></div>
+  </div>
+</div></section>
+
 <section id="bloco-09" class="banda-forte" data-od-id="oferta"><div class="wrap">
   <div class="stack reveal" data-od-id="stack-preco">
     <h2>O pacote completo, somado item por item</h2>
@@ -505,34 +523,15 @@ a{color:var(--azul)}
   </div>
 </div></section>
 
-<section id="bloco-10" data-od-id="depoimentos-resultado"><div class="wrap">
-  <span class="selo-claro reveal">Antes e depois</span>
-  <h2 class="reveal" style="margin-top:14px">Quem aplicou o método conta o antes e o depois</h2>
-  <div class="dep reveal" data-od-id="resultado-1">
-    <p><span class="quem">Antes:</span> chorava escondida depois de brigar com os filhos por motivos pequenos, com culpa acumulada há 4 anos.<br><span class="quem">Virada:</span> fez o exercício do diálogo com a foto na primeira semana e nomeou em voz alta a ferida da crítica constante.<br><span class="quem">Resultado:</span> em 2 meses, as brigas caíram para <strong>quase zero</strong> e ela descreve a casa como <strong>leve pela primeira vez</strong>.</p>
-    <div class="fila-resultado"><span class="chip">Brigas quase zero</span><span class="chip">Casa leve</span></div>
-  </div>
-  <div class="dep reveal" data-od-id="resultado-2">
-    <p><span class="quem">Antes:</span> aceitava todo projeto no trabalho, dormia 5 horas por noite e vivia exausto há 2 anos.<br><span class="quem">Virada:</span> identificou o padrão do apaziguador no mapa dos 5 traumas e escreveu os primeiros limites no papel.<br><span class="quem">Resultado:</span> em 90 dias, <strong>recusou 3 projetos sem culpa</strong> e voltou a dormir <strong>7 horas por noite</strong>.</p>
-    <div class="fila-resultado"><span class="chip">3 projetos recusados</span><span class="chip">Dorme 7 horas</span></div>
-  </div>
-  <div class="dep reveal" data-od-id="resultado-3">
-    <p><span class="quem">Antes:</span> terminava todo relacionamento antes dos 6 meses, com medo de ser abandonada primeiro, por 5 anos seguidos.<br><span class="quem">Virada:</span> atravessou as 4 etapas do perdão e escreveu a nova narrativa em 6 passos.<br><span class="quem">Resultado:</span> está há <strong>8 meses no relacionamento mais estável da vida adulta</strong>, com conversas difíceis <strong>sem fuga</strong>.</p>
-    <div class="fila-resultado"><span class="chip">8 meses estáveis</span><span class="chip">Conversas sem fuga</span></div>
-  </div>
-</div></section>
-
 <section id="bloco-11" class="banda" data-od-id="suporte-e-garantia"><div class="wrap">
-  <div class="duo">
-    <div class="card-simples reveal" data-od-id="suporte">
-      <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Você não atravessa sozinho</h3>
-      <p>Suporte por email para dúvidas sobre acesso, download e aplicação dos exercícios. Resposta em dias úteis, direto com a equipe do Sergio. O guia foi escrito para aplicação solo, e o email existe para nenhum leitor travar no caminho.</p>
-    </div>
-    <div class="card-simples garantia-secao reveal" data-od-id="garantia" style="text-align:left">
-      <h3 style="text-align:center"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Risco zero por 7 dias</h3>
-      <img src="assets/garantia-7-dias.webp" alt="Garantia incondicional de 7 dias" class="selo-garantia" loading="lazy">
-      <p><strong style="color:var(--ink)">Garantia incondicional de 7 dias.</strong> Você baixa, lê, ouve e aplica. Se em qualquer momento dentro dos 7 primeiros dias decidir que não é para você, devolvemos 100% do valor pago. Sem pergunta, sem formulário, sem burocracia.</p>
-    </div>
+  <div class="suporte-livre reveal" data-od-id="suporte">
+    <h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>Você não atravessa sozinho</h3>
+    <p>Suporte por email para dúvidas sobre acesso, download e aplicação dos exercícios. Resposta em dias úteis, direto com a equipe do Sergio. O guia foi escrito para aplicação solo, e o email existe para nenhum leitor travar no caminho.</p>
+  </div>
+  <div class="card-simples garantia-secao reveal" data-od-id="garantia-card" style="text-align:left">
+    <h3 style="text-align:center" data-od-id="garantia-titulo"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>Risco zero por 7 dias</h3>
+    <img src="assets/garantia-7-dias.webp" alt="Garantia incondicional de 7 dias" class="selo-garantia" loading="lazy">
+    <p><strong style="color:var(--ink)">Garantia incondicional de 7 dias.</strong> Você baixa, lê, ouve e aplica. Se em qualquer momento dentro dos 7 primeiros dias decidir que não é para você, devolvemos 100% do valor pago. Sem pergunta, sem formulário, sem burocracia.</p>
   </div>
 </div></section>
 
