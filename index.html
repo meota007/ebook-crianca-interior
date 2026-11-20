@@ -84,7 +84,12 @@ a{color:var(--azul)}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 .video-embed{position:relative;aspect-ratio:16/9;width:100%;max-width:680px;margin:32px auto 28px;border-radius:18px;overflow:hidden;border:1px solid rgba(127,185,240,.25);box-shadow:var(--shadow-deep);background:#071e38}
 .video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
-.video-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.video-fachada{position:absolute;inset:0;width:100%;height:100%;padding:0;border:0;cursor:pointer;background:#071e38;font:inherit}
+.video-fachada img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.video-fachada .play{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:74px;height:74px;border-radius:50%;background:linear-gradient(135deg,#1181e6,var(--azul));display:flex;align-items:center;justify-content:center;box-shadow:0 12px 30px rgba(2,12,26,.55);animation:pulsa 2.4s infinite}
+.video-fachada:hover .play{transform:translate(-50%,-50%) scale(1.06)}
+.video-fachada:focus-visible{outline:3px solid #6cb4f7;outline-offset:-3px}
+@keyframes pulsa{0%{box-shadow:0 12px 30px rgba(2,12,26,.55),0 0 0 0 rgba(31,141,240,.45)}70%{box-shadow:0 12px 30px rgba(2,12,26,.55),0 0 0 22px rgba(31,141,240,0)}100%{box-shadow:0 12px 30px rgba(2,12,26,.55),0 0 0 0 rgba(31,141,240,0)}}
 
 /* ticks */
 .ticks{list-style:none;padding:0;margin:6px 0 0}
@@ -148,7 +153,7 @@ a{color:var(--azul)}
 .comp-mensagem strong{font-family:'Sora',sans-serif}
 @keyframes surge{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
 /* intenção de implementação */
-.intencao{margin:10px 0 0;padding-top:10px;border-top:1px dashed #b5d4f3;font-size:14px;color:#0a3a6e}
+.intencao{display:flex;gap:10px;align-items:flex-start;margin:10px 0 0;padding-top:10px;border-top:1px dashed #b5d4f3;font-size:15px;color:#0a3a6e;text-align:left}
 /* âncora de preço riscada */
 .stack .preco s{font-family:'Sora',sans-serif;font-size:24px;color:#7ea6cd;margin-right:8px;letter-spacing:-.01em}
 .fechar .preco s{color:#8fb3d6}
@@ -167,15 +172,18 @@ a{color:var(--azul)}
 .comp-negativa li::before{content:"";position:absolute;left:2px;top:12px;width:16px;height:16px;border-radius:50%;background:#fbe9e7 url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="%23b3402f" stroke-width="3.4" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>') center no-repeat}
 
 /* o que você recebe */
-.recebe-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.recebe-grid{margin:22px 0}
 .item-recebe{background:#fff;border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-card);padding:22px}
 .item-recebe .topo{display:flex;align-items:center;gap:12px;margin-bottom:10px}
 .item-recebe .ic{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#1181e6,var(--azul));color:#fff;display:flex;align-items:center;justify-content:center;flex:none;box-shadow:0 8px 18px rgba(14,112,204,.3)}
 .item-recebe h3{margin:0;font-size:16.5px}
 .item-recebe .valor{margin-top:10px;font-family:'Sora',sans-serif;font-weight:700;color:var(--azul)}
-.acesso-imediato{display:flex;gap:12px;align-items:flex-start;background:var(--azul-claro);border:1px solid #b5d4f3;border-radius:14px;padding:16px 18px;margin-top:6px}
-.acesso-imediato svg{flex:none;margin-top:3px}
-.acesso-imediato p{margin:0;font-size:15.5px;color:#0a3a6e}
+.divisor-entrega{height:0;border-top:1px dashed #b5d4f3;margin:18px 0}
+.acesso-imediato{background:var(--azul-claro);border:1px solid #b5d4f3;border-radius:14px;padding:16px 18px;margin-top:6px}
+.acesso-imediato p{margin:0;font-size:15.5px;color:#0a3a6e;text-align:left}
+.linha-acesso{display:flex;gap:10px;align-items:flex-start}
+.acesso-imediato p svg{flex:none;margin-top:2px}
+.acesso-imediato p span{flex:1}
 
 /* bônus */
 .bonus-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:24px 0}
@@ -197,10 +205,10 @@ a{color:var(--azul)}
 .oferta{display:flex;gap:16px;align-items:flex-end;justify-content:center;margin:28px 0 10px;flex-wrap:wrap;position:relative}
 .oferta .livro{width:172px;flex:none;animation:flutua 6s ease-in-out infinite}
 .oferta .livro img{width:100%;border-radius:5px 11px 11px 5px;box-shadow:-14px 20px 42px rgba(2,12,26,.55);transform:perspective(900px) rotateY(-13deg)}
-.tile-bonus{width:118px;flex:none;border-radius:14px;padding:12px 8px;text-align:center;color:#fff;box-shadow:-8px 12px 26px rgba(2,12,26,.5);border:1px solid rgba(255,255,255,.16)}
-.tile-bonus img{width:100%;border-radius:9px;margin-bottom:8px;aspect-ratio:1/1;object-fit:cover}
+.tile-bonus{width:118px;height:220px;flex:none;display:flex;flex-direction:column;border-radius:14px;padding:12px 8px;text-align:center;color:#fff;box-shadow:-8px 12px 26px rgba(2,12,26,.5);border:1px solid rgba(255,255,255,.16)}
+.tile-bonus img{width:100%;border-radius:9px;margin-bottom:8px;aspect-ratio:1/1;object-fit:cover;flex:none}
 .tile-bonus strong{display:block;font-family:'Sora',sans-serif;font-size:12.5px;margin-top:2px}
-.tile-bonus small{font-size:11px;color:#cfe2f5}
+.tile-bonus small{font-size:11px;color:#cfe2f5;margin-top:auto}
 .tile-bonus .selo-tile{font-size:10px;font-weight:800;letter-spacing:.1em;background:rgba(255,255,255,.18);border-radius:20px;padding:2px 10px;display:inline-block;margin-bottom:6px}
 .tb1{background:linear-gradient(160deg,#1181e6,#0a4f96)}
 .tb2{background:linear-gradient(160deg,#3a63b8,#223f7e)}
@@ -273,7 +281,6 @@ a{color:var(--azul)}
   .capa-mini img{transform:none}
   .metodo-cards{grid-template-columns:1fr}
   .comparativo{grid-template-columns:1fr}
-  .recebe-grid{grid-template-columns:1fr}
   .bonus-grid{grid-template-columns:1fr}
   .duo{grid-template-columns:1fr}
   .autor{flex-direction:column;text-align:center}
@@ -299,14 +306,17 @@ a{color:var(--azul)}
       <p class="promessa" data-od-id="hero-promessa">Descubra como romper os padrões da sua infância.</p>
       <p class="sub">A explosão desproporcional, o medo de desagradar, o padrão que se repete nos relacionamentos. Nada disso nasce no presente. Nasce em ecos antigos que você nunca aprendeu a nomear.</p>
       <div class="video-embed" data-od-id="hero-vsl">
-        <iframe src="https://www.youtube-nocookie.com/embed/P21vyxvQqc0?rel=0" title="Vídeo: Aula 00 — Apresentação, Introdução ao Autoconhecimento" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        <button class="video-fachada" type="button" data-yt="P21vyxvQqc0" aria-label="Reproduzir vídeo: Aula 00 — Apresentação, Introdução ao Autoconhecimento">
+          <img src="assets/vsl-thumb.jpg" width="1280" height="720" alt="" fetchpriority="high">
+          <span class="play" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="6 3 20 12 6 21 6 3"/></svg></span>
+        </button>
       </div>
       <ul class="ticks">
         <li>Quem vive pedindo desculpas por reagir demais encontra a origem da reação e responde com calma</li>
         <li>Quem diz sim para tudo aprende a reconhecer o limite e volta a se colocar na própria agenda</li>
         <li>Quem repete os mesmos ciclos entende o roteiro antigo e escreve um novo, no papel</li>
       </ul>
-      <p class="cta-centro" style="margin:24px 0 0"><a class="cta" href="https://google.com" data-od-id="hero-cta">Quero entender minhas reações
+      <p class="cta-centro" style="margin:24px 0 0"><a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="hero-cta">Quero entender minhas reações
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
       <p class="linha-cta"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5fb0f5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Compra segura · Garantia incondicional de 7 dias</p>
   </div>
@@ -341,7 +351,7 @@ a{color:var(--azul)}
 
 <section id="bloco-04" data-od-id="ponte-metodo"><div class="wrap reveal">
   <p class="lead">Quem se reconheceu até aqui já entendeu a origem. Falta o caminho de volta.</p>
-  <a class="cta" href="https://google.com" data-od-id="ponte-cta">Quero ver o método completo
+  <a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="ponte-cta">Quero ver o método completo
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
   <p class="linha-cta">Guia de 87 páginas + áudio de 30 minutos · Garantia incondicional de 7 dias</p>
 </div></section>
@@ -393,7 +403,7 @@ a{color:var(--azul)}
     <div class="capitulo"><div class="n">10</div><div><strong>Transformação e conclusão.</strong><p>Celebrar marcos, atravessar os ciclos de cura e sair com o plano de vida contínua. Mais o chamado final: comece agora.</p></div></div>
     <div class="cta-mid" data-od-id="capitulos-cta">
       <p>Todo esse caminho, capítulo por capítulo, está dentro do guia<small>87 páginas + áudio de 30 minutos · garantia de 7 dias</small></p>
-      <a class="cta" href="https://google.com">Quero meu guia e meu áudio agora
+      <a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ">Quero meu guia e meu áudio agora
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
     </div>
   </div>
@@ -430,21 +440,19 @@ a{color:var(--azul)}
   <span class="selo-claro reveal">Entrega</span>
   <h2 class="reveal" style="margin-top:14px">Tudo que você receberá</h2>
   <div class="recebe-grid">
-    <div class="item-recebe reveal" data-od-id="recebe-guia">
+    <div class="item-recebe reveal" data-od-id="recebe-guia-audio">
       <div class="topo"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></span><h3>Guia em PDF, 87 páginas</h3></div>
       <p style="font-size:15.5px;color:var(--muted);margin:0">10 capítulos em ordem de aplicação, cada um terminando em exercício prático: os 5 exercícios de conexão, as 6 técnicas de cura, o perdão em 4 etapas e a reescrita em 6 passos.</p>
       <div class="valor">Vale R$ 97 na versão avulsa</div>
-    </div>
-    <div class="item-recebe reveal" data-od-id="recebe-audio">
+      <div class="divisor-entrega"></div>
       <div class="topo"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/></svg></span><h3>Áudio de auto-hipnose guiada, 30 minutos</h3></div>
       <p style="font-size:15.5px;color:var(--muted);margin:0">Sessão conduzida para visualizar, acolher e oferecer segurança à criança interior.</p>
       <div class="valor">Vale R$ 67 na versão avulsa</div>
     </div>
   </div>
   <div class="acesso-imediato reveal" data-od-id="acesso-imediato">
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-    <p><strong>Acesso imediato:</strong> pagamento aprovado, download liberado na hora, direto no seu email. Sem espera, sem prazo, sem login complicado.</p>
-    <p class="intencao">Comece no mesmo dia: o guia pede de 10 a 15 minutos por dia, e o áudio de 30 minutos pode ser ouvido ainda hoje à noite, de olhos fechados.</p>
+    <p class="linha-acesso"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg><span><strong>Acesso imediato:</strong> pagamento aprovado, download liberado na hora, direto no seu email. Sem espera, sem prazo, sem login complicado.</span></p>
+    <p class="intencao"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#0e70cc" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg><span><strong>Comece no mesmo dia:</strong> o guia pede de 10 a 15 minutos por dia, e o áudio de 30 minutos pode ser ouvido ainda hoje à noite, de olhos fechados.</span></p>
   </div>
 </div></section>
 
@@ -517,7 +525,7 @@ a{color:var(--azul)}
       <tr class="total"><td>Valor total</td><td>R$ 248</td></tr>
     </table>
     <p class="preco"><span class="ancora">Preço hoje</span><s>R$ 248</s> <strong>R$47</strong> à vista</p>
-    <p class="cta-centro" style="margin:0"><a class="cta" href="https://google.com" data-od-id="oferta-cta">Quero meu guia e meu áudio agora
+    <p class="cta-centro" style="margin:0"><a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="oferta-cta">Quero meu guia e meu áudio agora
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
     <p class="linha-cta" style="color:#9dbcd9;position:relative"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#5fb0f5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>Compra segura · Download imediato · Garantia de 7 dias</p>
   </div>
@@ -580,14 +588,14 @@ a{color:var(--azul)}
   <h2 class="reveal">Oferta final</h2>
   <p class="reveal">Guia em PDF com 87 páginas e exercícios aplicados · Áudio de auto-hipnose de 30 minutos · Bônus Cartas de Cura · Bônus mapa dos 5 traumas</p>
   <p class="preco reveal">De <s>R$ 248</s> por <strong>R$47</strong> à vista</p>
-  <p class="cta-centro reveal"><a class="cta" href="https://google.com" data-od-id="fechamento-cta">Quero meu guia e meu áudio agora
+  <p class="cta-centro reveal"><a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ" data-od-id="fechamento-cta">Quero meu guia e meu áudio agora
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a></p>
   <p class="pequeno reveal">Download imediato · Garantia de 7 dias · Ao continuar, você concorda com os termos de uso e a política de privacidade.</p>
 </div></section>
 
 <div id="barra-fixa" data-od-id="barra-fixa">
   <div class="info"><strong>Guia + áudio + 3 bônus</strong><small>De R$ 248 por <strong style="display:inline;font-size:12.5px">R$47</strong></small></div>
-  <a class="cta" href="https://google.com">Quero meu guia</a>
+  <a class="cta" href="https://pay.kiwify.com.br/GhPs2mQ">Quero meu guia</a>
 </div>
 
 <script>
@@ -613,6 +621,18 @@ a{color:var(--azul)}
         cont.textContent=n;
         msg.classList.toggle('on',n>0);
       });
+    });
+  }
+  var fach=document.querySelector('.video-fachada');
+  if(fach){
+    fach.addEventListener('click',function(){
+      var f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+fach.getAttribute('data-yt')+'?autoplay=1&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1';
+      f.title='Vídeo: Aula 00 — Apresentação, Introdução ao Autoconhecimento';
+      f.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      f.setAttribute('allowfullscreen','');
+      f.setAttribute('referrerpolicy','strict-origin-when-cross-origin');
+      fach.parentNode.replaceChild(f,fach);
     });
   }
 })();
